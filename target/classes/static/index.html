@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Eldars PayPal-Shop</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous"/>
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+        <!--
+         <div class="inner">
+             <h3 class="masthead-brand">PayPal-Shop</h3>
+             <nav class="nav nav-masthead justify-content-center">
+                 <a class="nav-link active" href="#">Home</a>
+                 <a class="nav-link" href="#">Features</a>
+                 <a class="nav-link" href="#">Contact</a>
+             </nav>
+         </div>-->
+    </header>
+
+    <main role="main" class="inner cover">
+        <h1 class="cover-heading">Eldars PayPal Shop</h1>
+        <p class="lead">Testing Paypal API for Identification</p><span id='lippButton'></span>
+        <script src='https://www.paypalobjects.com/js/external/api.js'></script>
+        <script>
+                paypal.use( ['login'], function (login) {
+                  login.render ({
+                    "appid":"Aaqplq1SpW-K7UGnWl7ELgmZNH13Xy0aczS9v8LO7NsrOk0krxpp3ojnl_U9B-rjuZHejd1kH6ob8K96",
+                    "authend":"sandbox",
+                    "scopes":"openid profile email",
+                    "containerid":"lippButton",
+                    "locale":"de-de",
+                    "returnurl":"http://localhost:8080/paypal_payment_success"
+                  });
+                });
+        </script>
+    </main>
+
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a
+                    href="https://twitter.com/mdo">@mdo</a>.</p>
+        </div>
+    </footer>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script>https://getbootstrap.com/assets/js/vendor/jquery-slim.min.js</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha256-98vAGjEDGN79TjHkYWVD4s87rvWkdWLHPs5MC3FvFX4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs=" crossorigin="anonymous"></script>
+</body>
+</html>
