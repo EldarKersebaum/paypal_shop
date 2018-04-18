@@ -1,6 +1,6 @@
 package com.eldar.paypayl_shop;
 
-import com.eldar.paypayl_shop.paypal_api.AuthCode;
+import com.eldar.paypayl_shop.paypal_api.AccessToken;
 import com.eldar.paypayl_shop.paypal_api.ClientCredentiels;
 import com.eldar.paypayl_shop.paypal_api.Requests;
 import com.eldar.paypayl_shop.user.User;
@@ -63,9 +63,9 @@ public class ApplicationController {
     User paymentSuccess(@RequestParam(value = "code") String authCode,
                         @RequestParam(value = "scope") String scope,
                         HttpSession httpSession) {
-        User user = new User(new AuthCode(authCode, scope));
+        AccessToken accessToken = requests.getAccessToken(authCode);
 
-
+        User user = requests.loadUserInformation(accessToken);
         httpSession.setAttribute(User.class.toString(), user);
         return (User) httpSession.getAttribute(User.class.toString());
     }
