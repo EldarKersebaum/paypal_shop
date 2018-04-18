@@ -18,7 +18,7 @@ public class Requests {
         this.restTemplate = restTemplate;
     }
 
-    public BearerToken getBearerTokenFromPaypal() {
+    public ClientCredentiels getClientCredentiels() {
         String url = "https://api.sandbox.paypal.com/v1/oauth2/token";
 
         HttpHeaders headers = new HttpHeaders();
@@ -28,6 +28,6 @@ public class Requests {
 
         HttpEntity<String> entity = new HttpEntity<>("grant_type=client_credentials", headers);
 
-        return restTemplate.postForObject(url, entity, BearerToken.class);
+        return restTemplate.postForObject(url, entity, ClientCredentiels.class);
     }
 }

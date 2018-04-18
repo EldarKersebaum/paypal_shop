@@ -1,7 +1,7 @@
 package com.eldar.paypayl_shop;
 
 import com.eldar.paypayl_shop.paypal_api.AuthCode;
-import com.eldar.paypayl_shop.paypal_api.BearerToken;
+import com.eldar.paypayl_shop.paypal_api.ClientCredentiels;
 import com.eldar.paypayl_shop.paypal_api.Requests;
 import com.eldar.paypayl_shop.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ import java.time.LocalDateTime;
 public class ApplicationController {
 
     private Requests requests;
-    private BearerToken bearerToken;
+    private ClientCredentiels clientCredentiels;
     private LocalDateTime timestampBearerTokenReceived;
 
     @Autowired
@@ -46,17 +46,17 @@ public class ApplicationController {
         return restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
     }
 
-    @RequestMapping("/bearer_token")
-    BearerToken bearer_token() {
-        if (bearerToken == null || bearerTokenToOld()) {
+    @RequestMapping("/client_credentiels")
+    ClientCredentiels clientCredentiels() {
+        if (clientCredentiels == null || clientCredentielsToOld()) {
             timestampBearerTokenReceived = LocalDateTime.now();
-            bearerToken = requests.getBearerTokenFromPaypal();
+            clientCredentiels = requests.getClientCredentiels();
         }
-        return bearerToken;
+        return clientCredentiels;
     }
 
-    private boolean bearerTokenToOld() {
-        return timestampBearerTokenReceived.plusSeconds(bearerToken.getExpires_in() * 100 / 95).isBefore(LocalDateTime.now());
+    private boolean clientCredentielsToOld() {
+        return timestampBearerTokenReceived.plusSeconds(clientCredentiels.getExpires_in() * 100 / 95).isBefore(LocalDateTime.now());
     }
 
     @RequestMapping("/paypal_payment_success")
