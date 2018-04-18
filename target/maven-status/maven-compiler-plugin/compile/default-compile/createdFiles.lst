@@ -1,5 +1,4 @@
 com/eldar/paypayl_shop/MyConfig.class
-com/eldar/paypayl_shop/paypal_api/TokenManager.class
 com/eldar/paypayl_shop/ApplicationController.class
 com/eldar/paypayl_shop/user/User.class
 com/eldar/paypayl_shop/paypal_api/BearerToken.class

@@ -15,11 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BearerToken {
+
     private String scope;
     private String nonce;
     private String access_token;
     private String app_id;
-    private int epxires_in;
+    private long expires_in;
 
     public String getScope() {
         return scope;
@@ -53,12 +54,12 @@ public class BearerToken {
         this.app_id = app_id;
     }
 
-    public int getEpxires_in() {
-        return epxires_in;
+    public long getExpires_in() {
+        return expires_in;
     }
 
-    public void setEpxires_in(int epxires_in) {
-        this.epxires_in = epxires_in;
+    public void setExpires_in(long expires_in) {
+        this.expires_in = expires_in;
     }
 
     @Override
@@ -69,7 +70,7 @@ public class BearerToken {
                 ", access_token=" + access_token +
                 ", app_id=" + app_id +
                 ", nonce=" + nonce +
-                ", epxires_in=" + epxires_in +
+                ", expires_in=" + expires_in +
                 '}';
     }
 }
